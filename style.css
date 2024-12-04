@@ -1,0 +1,129 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Sour Gummy;
+  --primary-colour: rgb(26, 4, 227);
+  --primary-hover: rgba(26, 4, 227, 0.271);
+}
+
+.note-app {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.note-main {
+  padding: 1.5rem 1rem;
+  width: 100%;
+}
+#input-title,
+#input-text {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+#input-title {
+  font-size: 3rem;
+  font-weight: 600;
+  height: 15vh;
+  margin-top: -2rem;
+}
+#input-text {
+  height: 5vh;
+  font-size: 1rem;
+}
+.note-title {
+  font-size: 2rem;
+}
+.note-text {
+  font-size: 1rem;
+  color: grey;
+}
+.save-delete-title {
+  display: flex;
+  gap: 1rem;
+}
+#input-title::placeholder,
+#input-text::placeholder {
+  color: gray;
+}
+
+/* .save-note,
+.delete-note {
+  height: 2rem;
+  margin-top: 1.5rem;
+} */
+
+.note-sidebar {
+  border-right: 1px solid #000;
+  margin: 3rem 1rem 1rem 1rem;
+  width: 30rem;
+  overflow: auto;
+}
+.create-note,
+.save-note,
+.delete-note {
+  background-color: var(--primary-colour);
+  color: aliceblue;
+  padding: 1rem 1rem 1rem 1rem;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+.create-note:hover,
+.save-note:hover,
+.delete-note:hover {
+  background-color: rgb(82, 67, 221);
+}
+.icons {
+  height: 2rem;
+  width: 3rem;
+  margin-bottom: -0.3rem;
+}
+.create-note .icons {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-bottom: -0.1rem;
+}
+.save-note,
+.delete-note {
+  width: unset;
+}
+
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.note-box {
+  border-radius: 1rem;
+  box-shadow: 0 0 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: all 0.4s ease-in-out;
+  margin: 0.5rem 0.5rem 0.5rem 0.1rem;
+}
+.note-box:hover,
+.selected-note {
+  background-color: var(--primary-hover);
+}
+
+.note-box:not(.selected-note) {
+  cursor: pointer;
+}
+.note-title,
+.note-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.note-time {
+  text-align: right;
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: grey;
+}
