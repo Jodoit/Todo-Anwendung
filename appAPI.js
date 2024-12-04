@@ -32,7 +32,6 @@ function getNotes() {
   return JSON.parse(localStorage.getItem(localST)) || [];
 }
 function saveNote(title, text, id = undefined) {
-  alert(id);
   const notes = getNotes();
   if (!id) {
     notes.push({
@@ -41,6 +40,16 @@ function saveNote(title, text, id = undefined) {
       id: getNextId(),
       date: new Date().getTime(),
     });
+  } else {
+    const indexOfNoteWithId = notes.findIndex((note) => note.id === id);
+    if (indexOfNoteWithId > -1) {
+      notes[indexOfNoteWithId] = {
+        title,
+        text,
+        id,
+        date: new Date().getTime(),
+      };
+    }
   }
   localStorage.setItem(localST, JSON.stringify(notes));
   titleInputEl.value = "";
