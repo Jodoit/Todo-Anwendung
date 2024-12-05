@@ -64,7 +64,7 @@ function saveNoteClick() {
     alert("Bitte Titel und Inhalt eingeben");
     return;
   }
-
+  // || !text
   saveNote(title, text, Number(getCurrentId()));
   // noteListEl.innerHTML += `
   //   <div class="note-box" data-id="${note.id}">
