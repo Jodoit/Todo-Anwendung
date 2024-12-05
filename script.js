@@ -100,3 +100,12 @@ function showNote(id) {
   titleInputEl.value = showedNote.title;
   textInputEl.value = showedNote.text;
 }
+
+function createNote() {
+  titleInputEl.value = "";
+  textInputEl.value = "";
+  const noteBoxEl = document.querySelectorAll(`.note-box`);
+  noteBoxEl.forEach((showNote) => {
+    showNote.classList.remove("selected-note");
+  });
+}
