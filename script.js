@@ -60,7 +60,7 @@ function displayNotesList() {
 function saveNoteClick() {
   const title = titleInputEl.value;
   const text = textInputEl.value;
-  if (!title || !text) {
+  if (!title) {
     alert("Bitte Titel und Inhalt eingeben");
     return;
   }
