@@ -75,3 +75,9 @@ function getNextId() {
 
   return nextId;
 }
+function deleteNote(id) {
+  if (!id) return;
+  const notes = getNotes();
+  const filteredNotes = notes.filter((note) => note.id !== Number(id));
+  localStorage.setItem(localST, JSON.stringify(filteredNotes));
+}
