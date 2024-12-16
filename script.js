@@ -36,9 +36,9 @@ function displayNotesList() {
   sortedNotes.forEach((note) => {
     html += `
        <div class="note-box" data-id="${note.id}">
-            <div class="note-title">${note.title}</div>
+            <div class="note-title">${escapeHtml(note.title)}</div>
             <div class="note-text">
-              ${note.text}
+              ${escapeHtml(note.text)}
             </div>
             <div class="note-time">${new Date(note.date).toLocaleString()}</div>
           </div> `;
@@ -61,6 +61,7 @@ function saveNoteClick() {
   const title = titleInputEl.value;
   const text = textInputEl.value;
   if (!title) {
+    // || !text
     alert("Bitte Titel eingeben");
     return;
   }
@@ -125,4 +126,12 @@ function getCurrentId() {
     currentId = currentlySelectedNoteEl.getAttribute("data-id");
   }
   return currentId;
+}
+function escapeHtml(unsafe) {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
